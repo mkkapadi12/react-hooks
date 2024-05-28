@@ -1,9 +1,10 @@
 import "./App.css";
+import UseEffect from "./Components/UseEffect/UseEffect";
 // import UseState from "./Components/UseState/useState";
-import UseStateObject from "./Components/UseState/useStateObject";
+// import UseStateObject from "./Components/UseState/useStateObject";
 
 const App = () => {
-  return <UseStateObject />;
+  return <UseEffect />;
 };
 
 export default App;
