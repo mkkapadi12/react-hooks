@@ -9,7 +9,12 @@ const File1 = () => {
     <UserContext.Provider value={user}>
       <div>
         <h1>{`Hello ${user}`}</h1>
-        <button onClick={() => setUser("Raj")}>Change User</button>
+        <button
+          onClick={() => setUser("Raj")}
+          onDoubleClick={() => setUser("Nirav")}
+        >
+          Change User
+        </button>
         <File2 />
       </div>
     </UserContext.Provider>
