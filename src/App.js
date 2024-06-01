@@ -5,12 +5,15 @@ import "./App.css";
 // import UseEffect1 from "./Components/UseEffect/UseEffect1";
 // import File1 from "./Components/UseContext/File1";
 // import UseRef from "./Components/UseRef/UseRef1";
-import UseRef2 from "./Components/UseRef/UseRef2";
+// import UseRef2 from "./Components/UseRef/UseRef2";
+import UseMemo1 from "./Components/UseMemo/UseMemo1";
+import UseMemo2 from "./Components/UseMemo/UseMemo2";
 
 const App = () => {
   return (
     <>
-      <UseRef2 />
+      <UseMemo1 />
+      <UseMemo2 />
     </>
   );
 };
