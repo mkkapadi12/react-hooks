@@ -6,14 +6,14 @@ import "./App.css";
 // import File1 from "./Components/UseContext/File1";
 // import UseRef from "./Components/UseRef/UseRef1";
 // import UseRef2 from "./Components/UseRef/UseRef2";
-import UseMemo1 from "./Components/UseMemo/UseMemo1";
-import UseMemo2 from "./Components/UseMemo/UseMemo2";
+// import UseMemo1 from "./Components/UseMemo/UseMemo1";
+// import UseMemo2 from "./Components/UseMemo/UseMemo2";
+import UseCallback from "./Components/UseCallback/UseCallback";
 
 const App = () => {
   return (
     <>
-      <UseMemo1 />
-      <UseMemo2 />
+      <UseCallback />
     </>
   );
 };
