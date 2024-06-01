@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 
-const UseRef = () => {
+const UseRef1 = () => {
   const [inputValue, setInputValue] = useState(" ");
   const count = useRef(0);
 
@@ -22,4 +22,4 @@ const UseRef = () => {
   );
 };
 
-export default UseRef;
+export default UseRef1;
