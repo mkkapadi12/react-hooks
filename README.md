@@ -1,70 +1,121 @@
-# Getting Started with Create React App
+# ⚛️ React Hooks Playground
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A hands-on collection of small, focused demos for the most important **React hooks**. Each hook has its own folder with short examples, so you can run one at a time and see exactly how it behaves.
 
-## Available Scripts
+Built while learning React, and handy as a quick reference or revision sheet.
 
-In the project directory, you can run:
+<!-- Add a screenshot after saving it as screenshot.png -->
+<!-- ![React Hooks preview](screenshot.png) -->
 
-### `npm start`
+## 📚 Hooks Covered
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+| Hook | Folder | What the demo shows |
+| ---- | ------ | ------------------- |
+| `useState` | `UseState/` | Counter with +/- buttons (styled-components + react-icons); updating an **object** state with the spread operator |
+| `useEffect` | `UseEffect/` | Timer with cleanup (`clearTimeout`); effect that runs when a dependency (`count`) changes |
+| `useContext` | `UseContext/` | Sharing a `user` value from `File1` down to `File5` without prop drilling |
+| `useRef` | `UseRef/` | Counting renders without re-rendering; focusing an input via a DOM ref |
+| `useMemo` | `UseMemo/` | Heavy calculation **without** vs **with** `useMemo` (see the performance difference) |
+| `useCallback` | `UseCallback/` | Memoised function passed to a `React.memo` child to avoid extra renders |
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Tech Stack
 
-### `npm test`
+- [React 18](https://react.dev/) (Create React App, `react-scripts` 5)
+- [styled-components 6](https://styled-components.com/)
+- [react-icons](https://react-icons.github.io/react-icons/)
+- Jest + React Testing Library (default CRA test setup)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📁 Project Structure
 
-### `npm run build`
+```
+react-hooks/
+├── public/
+└── src/
+    ├── Components/
+    │   ├── UseState/       # useState.jsx, useStateObject.jsx
+    │   ├── UseEffect/      # UseEffect.jsx, UseEffect1.jsx
+    │   ├── UseContext/     # File1.jsx … File5.jsx
+    │   ├── UseRef/         # UseRef1.jsx, UseRef2.jsx
+    │   ├── UseMemo/        # UseMemo1.jsx, UseMemo2.jsx
+    │   └── UseCallback/    # UseCallback.jsx, Todos.jsx
+    ├── App.js              # Choose which demo to render
+    └── index.js
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🚀 Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Prerequisites:** [Node.js](https://nodejs.org/) 16 or higher and npm.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+# 1. Clone the repository
+git clone https://github.com/mkkapadi12/react-hooks.git
 
-### `npm run eject`
+# 2. Go to the project folder
+cd react-hooks
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# 3. Install dependencies
+npm install
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# 4. Start the dev server
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## ▶️ Running a Specific Demo
 
-## Learn More
+`src/App.js` renders **one demo at a time**. Uncomment the import you want, then render it:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```jsx
+// src/App.js
+import UseMemo2 from "./Components/UseMemo/UseMemo2";
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+const App = () => {
+  return (
+    <>
+      <UseMemo2 />
+    </>
+  );
+};
 
-### Code Splitting
+export default App;
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Available components:
 
-### Analyzing the Bundle Size
+`UseState`, `UseStateObject`, `UseEffect`, `UseEffect1`, `File1` (useContext), `UseRef1`, `UseRef2`, `UseMemo1`, `UseMemo2`, `UseCallback`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 💡 Quick Notes
 
-### Making a Progressive Web App
+- **useState with objects:** always copy the old state (`{ ...prev, color: "blue" }`) so other fields are not lost.
+- **useEffect cleanup:** return a function to clear timers and listeners.
+- **useRef:** changing `ref.current` does **not** trigger a re-render.
+- **useMemo:** `UseMemo1` vs `UseMemo2` runs a deliberately slow loop. Click the second button in both to feel the lag only the non-memoised one has.
+- **useCallback + memo:** open the console and watch the `Child rendering...!` log to see when `Todos` re-renders.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 📜 Available Scripts
 
-### Advanced Configuration
+| Command | Description |
+| ------- | ----------- |
+| `npm start` | Run the app in development mode |
+| `npm run build` | Create an optimised production build |
+| `npm test` | Run tests in watch mode |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🔮 Future Improvements
 
-### Deployment
+- [ ] Add `useReducer`, `useLayoutEffect` and `useId` demos
+- [ ] Custom hooks (`useFetch`, `useLocalStorage`, `useDebounce`)
+- [ ] Sidebar or tabs to switch between demos without editing `App.js`
+- [ ] Short explanation text on each demo page
+- [ ] Deploy live demo with GitHub Pages or Vercel
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 👤 Author
 
-### `npm run build` fails to minify
+**Mayur Kapadi**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- GitHub: [@mkkapadi12](https://github.com/mkkapadi12)
+- Email: mayurkapadi12@gmail.com
+
+---
+
+⭐ If this helped you learn React hooks, consider giving it a star!
